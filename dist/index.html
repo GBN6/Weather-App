@@ -5,8 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/039f555009.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
-    <script src="main.js"></script>
+    <main class="main">
+        <div class="weather">
+            <div class="weather-information">
+                <div class="weather-information-desc">Cloudy</div>
+                <div class="weather-information-city">Warsaw</div>
+                <div class="weather-information-date">Mon, 3rd Aug 2022</div>
+                <div class="weather-information-time">18.00</div>
+                <div class="weather-information-temp">4 °C</div>
+                <div class="weather-information-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+            </div>
+            <div class="weather-detail-container">
+                <div class="weather-detail">
+                    <div class="weather-detail-icon">
+                        <i class="fas fa-temperature-half"></i>
+                    </div>
+                    <div class="weather-detail-info">
+                        <div class="weather-detail-title">Feels like</div>
+                        <div class="weather-detail-data" id="temp-feel"></div>
+                    </div>
+                </div>
+                <div class="weather-detail">
+                    <div class="weather-detail-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="weather-detail-info">
+                        <div class="weather-detail-title">Humidity</div>
+                        <div class="weather-detail-data" id="humidity"></div>
+                    </div>
+                </div>
+                <div class="weather-detail">
+                    <div class="weather-detail-icon">
+                        <i class="fas fa-cloud-showers-heavy"></i>
+                    </div>
+                    <div class="weather-detail-info">
+                        <div class="weather-detail-title">Chance of rain</div>
+                        <div class="weather-detail-data" id="chance-rain"></div>
+                    </div>
+                </div>
+                <div class="weather-detail">
+                    <div class="weather-detail-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="weather-detail-info">
+                        <div class="weather-detail-title">Wind speed</div>
+                        <div class="weather-detail-data" id="wind-speed"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form class="form" action="" novalidate>
+            <input class="user-input" type="text" placeholder="Location">
+            <button class="btn btn-search" type="submit"><i class="fas fa-magnifying-glass"></i></button>
+        </form>
+    </main>
 </body>
 </html>
