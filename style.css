@@ -49,4 +49,10 @@ main {
     border-bottom: 2px solid white;
     max-width: 200px;
     align-self: center;
+    padding-bottom: 5px;
+}
+.btn-search {
+    background-color: transparent;
+    border: none;
+    color: white;
 }
