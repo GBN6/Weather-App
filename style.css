@@ -1,0 +1,52 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+    /* 1 rem = 10 px (browser default is 16) */
+}
+
+body {
+    min-height: 100vh;
+    padding: 4rem;
+    background-image: url(./imgs/bg.jpg);
+    background-image: linear-gradient(to right, rgb(0, 0, 0, 0.3), rgb(0, 0, 0, 0.3)), url(./imgs/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.weather {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.user-input {
+    border: none;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    max-width: 200px;
+}
+
+::placeholder {
+    color: white;
+    font-weight: 900;
+}
+.form {
+    border-bottom: 2px solid white;
+    max-width: 200px;
+    align-self: center;
+}
