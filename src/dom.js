@@ -24,7 +24,7 @@ function renderWeatherData(data, units) {
   weatherInfoDesc.textContent = data.current.weather[0].description;
   weatherInfoCity.textContent = data.name;
   weatherInfoDate.textContent = weatherDate(data.current.dt);
-  weatherInfoTime.textContent = weatherTime(data.current.dt);
+  weatherInfoTime.textContent = weatherTime(data.current.dt, data.timezone);
   weatherInfoTemp.textContent = `${Math.round(data.current.temp)} ${temperatureUnit}`;
   weatherInfoIcon.innerHTML = getIcon(data.current.weather[0].icon);
 }

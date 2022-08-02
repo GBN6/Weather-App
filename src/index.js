@@ -6,7 +6,6 @@ import {
   weatherDate,
   weatherTime,
 } from './weatherApi';
-
 import { renderWeatherData, renderWeatherDetails } from './dom';
 
 const searchButton = document.querySelector('.btn');

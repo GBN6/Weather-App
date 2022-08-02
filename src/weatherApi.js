@@ -25,16 +25,16 @@ async function getForecast(url) {
 }
 
 function weatherDate(unix) {
-  let milliseconds = unix * 1000; // 1575909015000
-  let dateObject = new Date(+milliseconds);
+  let milliseconds = unix * 1000;
+  let dateObject = new Date(milliseconds);
   let dateFormat = dateObject.toDateString();
   return dateFormat;
 }
 
-function weatherTime(unix) {
-  let milliseconds = unix * 1000; // 1575909015000
-  let timeObject = new Date(+milliseconds);
-  let timeFormat = timeObject.toLocaleTimeString();
+function weatherTime(unix, zone) {
+  let milliseconds = unix * 1000;
+  let timeObject = new Date(milliseconds);
+  let timeFormat = timeObject.toLocaleTimeString('en-GB',{timeZone:`${zone}`} );
   return timeFormat;
 }
 
