@@ -103,7 +103,7 @@ svg {
 .form {
     border-bottom: 2px solid white;
     max-width: 200px;
-    align-self: center;
+    /* align-self: center; */
     padding-bottom: 5px;
 }
 .btn-search {
