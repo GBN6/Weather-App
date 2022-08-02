@@ -34,6 +34,11 @@ main {
     flex-direction: column;
     gap: 20px;
 }
+
+svg {
+    height: 64px;
+    width: 64px;
+}
 /*    WEATHER INFO      */
 .weather {
     display: flex;
@@ -60,7 +65,7 @@ main {
     font-weight: 500;
 }
 .weather-information-icon {
-    font-size: 6rem;
+    font-size: 2rem;
 }
 
 /*     WEATHER DETAILS      */
