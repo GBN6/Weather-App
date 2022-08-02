@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -20,19 +22,68 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    font-family: montserrat, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+
 main {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-
+/*    WEATHER INFO      */
 .weather {
     display: flex;
     justify-content: space-between;
     color: white;
 }
+.weather-information-desc {
+    font-size: 4rem;
+    font-weight: 700;
+}
+.weather-information-city {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.weather-information-date {
+    font-size: 1.5rem;
+}
+.weather-information-time {
+    margin-bottom: 1rem;
+}
+.weather-information-temp {
+    font-size: 5rem;
+    font-weight: 500;
+}
+.weather-information-icon {
+    font-size: 6rem;
+}
 
+/*     WEATHER DETAILS      */
+.weather-detail {
+    display: flex;
+    margin-bottom: 2rem;
+}
+.weather-detail-icon {
+    margin-right: 1rem;
+    font-size: 2rem;
+    width: 2rem;
+}
+.weather-detail-title {
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+.weather-detail-data {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/*      USER INPUT      */
 .user-input {
     border: none;
     background-color: transparent;
@@ -40,7 +91,6 @@ main {
     outline: none;
     max-width: 200px;
 }
-
 ::placeholder {
     color: white;
     font-weight: 900;
@@ -55,4 +105,25 @@ main {
     background-color: transparent;
     border: none;
     color: white;
+}
+
+
+/*      FORECAST        */
+.forecast-daily-container {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+}
+.forecast-daily-day {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+.forecast-daily-temp-high {
+    font-size: 2rem;
+    font-weight: 800;
+}
+.forecast-daily-icon {
+    margin-top: 1rem;
+    font-size: 3rem;
 }
