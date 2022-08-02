@@ -7,15 +7,24 @@ import {
   weatherTime,
 } from './weatherApi';
 
-const cityUrl = requestCityUrl('Warsaw');
+import { renderWeatherData, renderWeatherDetails } from './dom';
+
+const searchButton = document.querySelector('.btn');
+const form = document.querySelector('.form');
+
+searchButton.addEventListener('click', test);
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+});
 
 async function test() {
+  const userInput = document.querySelector('.user-input').value;
+  let cityUrl = requestCityUrl(userInput);
   let coords = await getCoord(cityUrl);
   let forcecastUrl = requestForecastUrl(coords, 'metric');
   let forecastWeather = await getForecast(forcecastUrl);
-  console.log(forecastWeather);
-  console.log(weatherDate(forecastWeather.current.dt));
-  console.log(weatherTime(forecastWeather.current.dt));
-
+  forecastWeather.name = coords.name;
+  forecastWeather.country = coords.country;
+  renderWeatherData(forecastWeather, 'metric');
+  renderWeatherDetails(forecastWeather, 'metric');
 }
-test();
