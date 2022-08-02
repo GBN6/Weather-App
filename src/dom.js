@@ -25,7 +25,9 @@ function renderWeatherData(data, units) {
   weatherInfoCity.textContent = data.name;
   weatherInfoDate.textContent = weatherDate(data.current.dt);
   weatherInfoTime.textContent = weatherTime(data.current.dt, data.timezone);
-  weatherInfoTemp.textContent = `${Math.round(data.current.temp)} ${temperatureUnit}`;
+  weatherInfoTemp.textContent = `${Math.round(
+    data.current.temp
+  )} ${temperatureUnit}`;
   weatherInfoIcon.innerHTML = getIcon(data.current.weather[0].icon);
 }
 
@@ -57,4 +59,36 @@ function renderWeatherDetails(data, units) {
   } ${speed}`;
 }
 
-export {renderWeatherData, renderWeatherDetails};
+function renderDailyWeatherForecast(data, units) {
+  let temperatureUnit = '°C';
+
+  if (units === 'imperial') {
+    temperatureUnit = '°F';
+  }
+
+  const currentDayPlusOne = document.querySelector(
+    '#current-day-plus-one .forecast-daily-day'
+  );
+  const currentDayPlusTwo = document.querySelector(
+    '#current-day-plus-two .forecast-daily-day'
+  );
+  const currentDayPlusThree = document.querySelector(
+    '#current-day-plus-three .forecast-daily-day'
+  );
+  const currentDayPlusFour = document.querySelector(
+    '#current-day-plus-four .forecast-daily-day'
+  );
+  const currentDayPlusFive = document.querySelector(
+    '#current-day-plus-five .forecast-daily-day'
+  );
+
+  currentDayPlusOne.textContent = weatherDate(data.daily[1].dt).slice(0, 3);
+  currentDayPlusTwo.textContent = weatherDate(data.daily[2].dt).slice(0, 3);
+  currentDayPlusThree.textContent = weatherDate(data.daily[3].dt).slice(0, 3);
+  currentDayPlusFour.textContent = weatherDate(data.daily[4].dt).slice(0, 3);
+  currentDayPlusFive.textContent = weatherDate(data.daily[5].dt).slice(0, 3);
+}
+
+
+
+export { renderWeatherData, renderWeatherDetails };

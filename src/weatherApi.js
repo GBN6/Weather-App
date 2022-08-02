@@ -27,7 +27,7 @@ async function getForecast(url) {
 function weatherDate(unix) {
   let milliseconds = unix * 1000;
   let dateObject = new Date(milliseconds);
-  let dateFormat = dateObject.toDateString();
+  let dateFormat = dateObject.toDateString('en-GB');
   return dateFormat;
 }
 
