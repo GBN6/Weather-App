@@ -13,11 +13,11 @@
     <main class="main">
         <div class="weather">
             <div class="weather-information">
-                <div class="weather-information-desc">Cloudy</div>
-                <div class="weather-information-city">Warsaw</div>
-                <div class="weather-information-date">Mon, 3rd Aug 2022</div>
-                <div class="weather-information-time">18.00</div>
-                <div class="weather-information-temp">4 °C</div>
+                <div class="weather-information-desc"></div>
+                <div class="weather-information-city"></div>
+                <div class="weather-information-date"></div>
+                <div class="weather-information-time"></div>
+                <div class="weather-information-temp"></div>
                 <div class="weather-information-icon">
                     <i class="fas fa-cloud"></i>
                 </div>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="weather-detail-info">
                         <div class="weather-detail-title">Feels like</div>
-                        <div class="weather-detail-data" id="temp-feel">4 °C </div>
+                        <div class="weather-detail-data" id="temp-feel"></div>
                     </div>
                 </div>
                 <div class="weather-detail">
@@ -38,7 +38,7 @@
                     </div>
                     <div class="weather-detail-info">
                         <div class="weather-detail-title">Humidity</div>
-                        <div class="weather-detail-data" id="humidity">87%</div>
+                        <div class="weather-detail-data" id="humidity"></div>
                     </div>
                 </div>
                 <div class="weather-detail">
@@ -47,7 +47,7 @@
                     </div>
                     <div class="weather-detail-info">
                         <div class="weather-detail-title">Chance of rain</div>
-                        <div class="weather-detail-data" id="chance-rain">10%</div>
+                        <div class="weather-detail-data" id="chance-rain"></div>
                     </div>
                 </div>
                 <div class="weather-detail">
@@ -56,16 +56,21 @@
                     </div>
                     <div class="weather-detail-info">
                         <div class="weather-detail-title">Wind speed</div>
-                        <div class="weather-detail-data" id="wind-speed">11 km/h</div>
+                        <div class="weather-detail-data" id="wind-speed"></div>
                     </div>
                 </div>
             </div>
         </div>
-
         <form class="form" action="" novalidate>
             <input class="user-input" type="text" placeholder="Location">
             <button class="btn btn-search" type="submit"><i class="fas fa-magnifying-glass"></i></button>
         </form>
+        <div class="error-message" style="visibility: hidden;">
+            Could not find your location.
+            <br>
+            Please enter your "City" again.
+        </div>
+        <button class="btn-toggle-degrees">Display °C</button>
     </main>
     <div class="forecast-container">
         <div class="forecast-daily-container">
