@@ -60,35 +60,56 @@ function renderWeatherDetails(data, units) {
 }
 
 function renderDailyWeatherForecast(data, units) {
+  const forecastDailyContainer = document.querySelector(
+    '.forecast-daily-container'
+  );
   let temperatureUnit = '°C';
 
   if (units === 'imperial') {
     temperatureUnit = '°F';
   }
 
-  const currentDayPlusOne = document.querySelector(
-    '#current-day-plus-one .forecast-daily-day'
-  );
-  const currentDayPlusTwo = document.querySelector(
-    '#current-day-plus-two .forecast-daily-day'
-  );
-  const currentDayPlusThree = document.querySelector(
-    '#current-day-plus-three .forecast-daily-day'
-  );
-  const currentDayPlusFour = document.querySelector(
-    '#current-day-plus-four .forecast-daily-day'
-  );
-  const currentDayPlusFive = document.querySelector(
-    '#current-day-plus-five .forecast-daily-day'
-  );
+  while (forecastDailyContainer.firstChild) {
+    forecastDailyContainer.removeChild(forecastDailyContainer.firstChild);
+  }
 
-  currentDayPlusOne.textContent = weatherDate(data.daily[1].dt).slice(0, 3);
-  currentDayPlusTwo.textContent = weatherDate(data.daily[2].dt).slice(0, 3);
-  currentDayPlusThree.textContent = weatherDate(data.daily[3].dt).slice(0, 3);
-  currentDayPlusFour.textContent = weatherDate(data.daily[4].dt).slice(0, 3);
-  currentDayPlusFive.textContent = weatherDate(data.daily[5].dt).slice(0, 3);
+  data.daily.forEach((day, index) => {
+    if (index !== 0) {
+      const forecastDailyTile = document.createElement('div');
+      const forecastDailyDay = document.createElement('div');
+      const forecastDailyTempContainer = document.createElement('div');
+      const forecastDailyTempHigh = document.createElement('div');
+      const forecastDailyTempLow = document.createElement('div');
+      const forecastDailyIcon = document.createElement('div');
+
+      forecastDailyTile.classList.add('forecast-daily');
+      forecastDailyTile.setAttribute('data-index', `${index}`);
+      forecastDailyDay.classList.add('forecast-daily-day');
+      forecastDailyTempContainer.classList.add('forecast-daily-temp');
+      forecastDailyTempHigh.classList.add('forecast-daily-temp-high');
+      forecastDailyTempLow.classList.add('forecast-daily-temp-low');
+      forecastDailyIcon.classList.add('forecast-daily-icon');
+
+      forecastDailyDay.textContent = weatherDate(day.dt).slice(0, 3);
+      forecastDailyTempHigh.textContent = `${Math.round(
+        day.temp.max
+      )} ${temperatureUnit}`;
+      forecastDailyTempLow.textContent = `${Math.round(
+        day.temp.min
+      )} ${temperatureUnit}`;
+      forecastDailyIcon.innerHTML = getIcon(day.weather[0].icon);
+
+      forecastDailyTempContainer.appendChild(forecastDailyTempHigh);
+      forecastDailyTempContainer.appendChild(forecastDailyTempLow);
+
+      forecastDailyTile.appendChild(forecastDailyDay);
+      forecastDailyTile.appendChild(forecastDailyTempContainer);
+      forecastDailyTile.appendChild(forecastDailyIcon);
+
+      forecastDailyContainer.appendChild(forecastDailyTile);
+    }
+  });
+  return forecastDailyContainer;
 }
 
-
-
-export { renderWeatherData, renderWeatherDetails };
+export { renderWeatherData, renderWeatherDetails, renderDailyWeatherForecast };

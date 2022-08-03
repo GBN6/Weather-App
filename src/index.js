@@ -6,7 +6,7 @@ import {
   weatherDate,
   weatherTime,
 } from './weatherApi';
-import { renderWeatherData, renderWeatherDetails } from './dom';
+import { renderWeatherData, renderWeatherDetails, renderDailyWeatherForecast } from './dom';
 
 const searchButton = document.querySelector('.btn');
 const form = document.querySelector('.form');
@@ -17,8 +17,8 @@ form.addEventListener('submit', (e) => {
 });
 
 async function test() {
-  const userInput = document.querySelector('.user-input').value;
-  let cityUrl = requestCityUrl(userInput);
+  const userInput = document.querySelector('.user-input');
+  let cityUrl = requestCityUrl(userInput.value);
   let coords = await getCoord(cityUrl);
   let forcecastUrl = requestForecastUrl(coords, 'metric');
   let forecastWeather = await getForecast(forcecastUrl);
@@ -26,4 +26,6 @@ async function test() {
   forecastWeather.country = coords.country;
   renderWeatherData(forecastWeather, 'metric');
   renderWeatherDetails(forecastWeather, 'metric');
+  renderDailyWeatherForecast(forecastWeather, 'metric');
+  userInput.value = '';
 }
