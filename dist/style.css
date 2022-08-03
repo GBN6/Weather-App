@@ -81,10 +81,10 @@ svg {
 .weather-detail-title {
     margin-bottom: 0.5rem;
     font-weight: 900;
-    font-size: 1.2rem;
+    font-size: 2rem;
 }
 .weather-detail-data {
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-weight: 500;
 }
 
@@ -143,6 +143,9 @@ svg {
     font-size: 2rem;
     font-weight: 800;
 }
+.forecast-daily-temp-low {
+    font-size: 1.5rem;
+}
 .forecast-daily-icon {
     margin-top: 1rem;
 }
@@ -150,13 +153,13 @@ svg {
 /*         MEDIA QUERIES          */
 @media (max-width: 1700px) {
     html {
-    font-size: 56.25%;  
+    font-size: 60%;  
     }
 }
 
 @media (max-width: 1200px) {
     html {
-      font-size: 50%;  
+      font-size: 55%;  
     }  
 }
 @media (max-width: 750px) {
